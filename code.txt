@@ -1,2 +1,12 @@
+npx create-expo-app name -e with-reanimated
 npx create-expo-app name
-y
+npx expo start --tunnel
+git pull origin
+
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npx expo install react-native-screens react-native-safe-area-context
+npx expo install react-native-gesture-handler
+npx expo install @react-native-masked-view/masked-view
+npm install @react-navigation/drawer
+npx expo install react-native-reanimated
