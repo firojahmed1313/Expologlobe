@@ -1,2 +1,2 @@
 npx create-expo-app name
-npx expo start --tunnel
+y
