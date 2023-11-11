@@ -2,9 +2,7 @@ import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Contact from "./src/screen/Contact";
-import { View } from "react-native";
-
-
+import { View, Text } from "react-native";
 import About from "./src/screen/About";
 import Drawer from "./src/screen/Drawer";
 import ListCity from "./src/screen/drawer/ListCity";
@@ -15,18 +13,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-
-      <Stack.Navigator initialRouteName="ListCity">
-        <Stack.Screen
-          name="Drawer"
-          options={{ 
-            headerShown: true ,
-            headerShown:false,
+      <Stack.Navigator initialRouteName="Drawer">
+        <Stack.Screen name="Drawer"
+          options={{
+            headerShown: true,
+            headerShown: false,
           }}
-          component={Drawer}
-        />
-        <Stack.Screen
-          name="About"
+          component={Drawer} />
+        <Stack.Screen name="About"
           options={{
             headerTitleStyle: {
               fontSize: 30,
@@ -34,11 +28,8 @@ export default function App() {
             },
             headerTitleAlign: "center",
           }}
-          component={About}
-        />
-
-        <Stack.Screen
-          name="Contact"
+          component={About} />
+        <Stack.Screen name="Contact"
           options={{
             headerTitleStyle: {
               fontSize: 30,
@@ -46,10 +37,8 @@ export default function App() {
             },
             headerTitleAlign: "center",
           }}
-          component={Contact}
-        />
-        <Stack.Screen
-          name="ListCity"
+          component={Contact} />
+        <Stack.Screen name="ListCity"
           options={{
             headerTitleStyle: {
               fontSize: 30,
@@ -57,10 +46,8 @@ export default function App() {
             },
             headerTitleAlign: "center",
           }}
-          component={ListCity}
-        />
-        <Stack.Screen
-          name="CityDatails"
+          component={ListCity} />
+        <Stack.Screen name="CityDatails"
           options={{
             headerTitleStyle: {
               fontSize: 30,
@@ -68,8 +55,7 @@ export default function App() {
             },
             headerTitleAlign: "center",
           }}
-          component={CityDatails}
-        />
+          component={CityDatails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

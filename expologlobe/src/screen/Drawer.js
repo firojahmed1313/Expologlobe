@@ -13,7 +13,8 @@ const DrawerNavi = createDrawerNavigator();
 
 const Drawer = () => {
   return (
-    <DrawerNavi.Navigator>
+    
+    <DrawerNavi.Navigator initialRouteName='Home'>
         <DrawerNavi.Screen name='Home' component={Home}/>
         <DrawerNavi.Screen name='Asia' component={Asia}/>
         <DrawerNavi.Screen name='Afrika' component={Afrika}/>
