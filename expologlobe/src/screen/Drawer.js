@@ -13,16 +13,23 @@ const DrawerNavi = createDrawerNavigator();
 
 const Drawer = () => {
   return (
-    
+
     <DrawerNavi.Navigator initialRouteName='Home'>
-        <DrawerNavi.Screen name='Home' component={Home}/>
-        <DrawerNavi.Screen name='Asia' component={Asia}/>
-        <DrawerNavi.Screen name='Afrika' component={Afrika}/>
-        <DrawerNavi.Screen name='MiddleEast' component={MiddleEast}/>
-        <DrawerNavi.Screen name='Oceania' component={Oceania}/>
-        <DrawerNavi.Screen name='Europe' component={Europe}/>
-        <DrawerNavi.Screen name='NorthAmerica' component={NorthAmerica}/>
-        <DrawerNavi.Screen name='LatinAmerica' component={LatinAmerica}/>
+      <DrawerNavi.Screen name='Home' options={{
+        headerTitleStyle: {
+          fontSize: 30,
+          fontWeight: 400,
+        },
+        headerTitleAlign: "center",
+        headerTitle:"ExpoloGlobe"
+      }} component={Home} />
+      <DrawerNavi.Screen name='Asia' component={Asia} />
+      <DrawerNavi.Screen name='Afrika' component={Afrika} />
+      <DrawerNavi.Screen name='MiddleEast' component={MiddleEast} />
+      <DrawerNavi.Screen name='Oceania' component={Oceania} />
+      <DrawerNavi.Screen name='Europe' component={Europe} />
+      <DrawerNavi.Screen name='NorthAmerica' component={NorthAmerica} />
+      <DrawerNavi.Screen name='LatinAmerica' component={LatinAmerica} />
     </DrawerNavi.Navigator>
   )
 }

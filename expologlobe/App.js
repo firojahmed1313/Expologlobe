@@ -16,46 +16,42 @@ export default function App() {
       <Stack.Navigator initialRouteName="Drawer">
         <Stack.Screen name="Drawer"
           options={{
-            headerShown: true,
             headerShown: false,
           }}
           component={Drawer} />
-        <Stack.Screen name="About"
-          options={{
-            headerTitleStyle: {
-              fontSize: 30,
-              fontWeight: 400,
-            },
-            headerTitleAlign: "center",
-          }}
-          component={About} />
-        <Stack.Screen name="Contact"
-          options={{
-            headerTitleStyle: {
-              fontSize: 30,
-              fontWeight: 400,
-            },
-            headerTitleAlign: "center",
-          }}
-          component={Contact} />
-        <Stack.Screen name="ListCity"
-          options={{
-            headerTitleStyle: {
-              fontSize: 30,
-              fontWeight: 400,
-            },
-            headerTitleAlign: "center",
-          }}
-          component={ListCity} />
-        <Stack.Screen name="CityDatails"
-          options={{
-            headerTitleStyle: {
-              fontSize: 30,
-              fontWeight: 400,
-            },
-            headerTitleAlign: "center",
-          }}
-          component={CityDatails} />
+        <Stack.Screen name="About" options={{
+            headerShown: true,
+            headerTitleAlign:"center",
+            headerTitleStyle:{
+              fontSize:30,
+              
+            }
+          }} component={About}></Stack.Screen>
+        <Stack.Screen name="Contact" options={{
+            headerShown: true,
+            headerTitleAlign:"center",
+            headerTitleStyle:{
+              fontSize:30,
+              
+            }
+          }} component={Contact}></Stack.Screen>
+        <Stack.Screen name="ListCity" options={{
+            headerShown: true,
+            headerTitleAlign:"center",
+            headerTitleStyle:{
+              fontSize:30,
+              
+            }
+          }} component={ListCity}></Stack.Screen>
+        <Stack.Screen name="CityDatails" options={{
+            headerShown: true,
+            headerTitleAlign:"center",
+            headerTitleStyle:{
+              fontSize:30,
+              
+            }
+          }} component={CityDatails}></Stack.Screen>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
