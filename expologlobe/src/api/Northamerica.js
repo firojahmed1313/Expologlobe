@@ -1,4 +1,4 @@
-[
+const Northamerica= [
     {
         "image_lastmod": 1677542547,
         "region": "North America",
@@ -1001,4 +1001,4 @@
     }
 ]
 
-
+export default Northamerica;

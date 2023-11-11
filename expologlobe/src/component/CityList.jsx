@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 const CityList = ({ itemlist }) => {
     const Navigation= useNavigation();
 
-  console.log(itemlist);
+  //console.log(itemlist);
   const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 
   return (

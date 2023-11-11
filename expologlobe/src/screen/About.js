@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import Nav from "../component/Nav";
+
 
 const About = () => {
   const Navigation = useNavigation();
@@ -74,6 +76,9 @@ const About = () => {
             style={[styles.iconImage]}
           />
         </TouchableOpacity>
+      </View>
+      <View style={styles.navStyle}>
+        <Nav />
       </View>
     </ScrollView>
   );
@@ -148,5 +153,12 @@ const styles = StyleSheet.create({
   aboutDet: {
     fontSize: 24,
     //fontWeight: 400,
+  },
+  navStyle: {
+    backgroundColor: "gray",
+    //backgroundColor:"#686868"
+    padding: 15,
+    //borderRadius: 15,
+    position: "relative",
   },
 });

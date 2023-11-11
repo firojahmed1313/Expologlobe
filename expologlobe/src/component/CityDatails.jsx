@@ -1,14 +1,35 @@
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 
+import World from "../api/World";
+
 const CityDatails = ({ route }) => {
   const [udata, setuData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(true);
-  //const [tergetdata, setterget] = useState();
+  //const [isLoaded, setIsLoaded] = useState(true);
   const terget = route.params.con;
-  //console.log(terget);
-  //setterget(terget);
-  const getuData = async () => {
+  if(terget==='asia'){
+    console.log(World.asia[0].image_lastmod);
+  }
+  else if(terget==='africa'){
+    console.log(World.africa[0].image_lastmod);
+  }
+  else if(terget==='middle-east'){
+    console.log(World.middleeast[0].image_lastmod);
+  }
+  else if(terget==='oceania'){
+    console.log(World.oceania[0].image_lastmod);
+  }
+  else if(terget==='europe'){
+    console.log(World.europe[0].image_lastmod);
+  }
+  else if(terget==='north-america'){
+    console.log(World.northamerica[0].image_lastmod);
+  }
+  else if(terget==='latin-america'){
+    console.log(World.latinamerica[0].image_lastmod);
+  }
+  
+  /*const getuData = async () => {
     const url = `https://nomad-list-cities.p.rapidapi.com/nomad-list/${terget}?size=20&page=1&sort=desc&sort_by=overall_score`;
     const options = {
       method: "GET",
@@ -22,22 +43,23 @@ const CityDatails = ({ route }) => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      //console.log(result);
       setuData(result);
-      //console.log(udata)
+      console.log(udata)
       setIsLoaded(false);
     } catch (error) {
       console.warn(error);
     }
   };
-  //useEffect(() => getuData(), []);
-  useEffect(() => getuData(), []);
-
+  useEffect(() =>
+   
+  getuData(),
+   []);
+*/
   return (
-    (isLoaded)?<ActivityIndicator size="large" color="red"  /> :
-    <View>
-      <Text>{terget}</Text>
-    </View>
+    //(isLoaded) ? <ActivityIndicator size="large" color="red" /> :
+      <View>
+        <Text>{terget}</Text>
+      </View>
   );
 };
 

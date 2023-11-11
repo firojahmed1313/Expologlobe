@@ -1,4 +1,4 @@
-[
+const OceaniaApi = [
     {
         "image_lastmod": 1675438297,
         "region": "Oceania",
@@ -1000,3 +1000,5 @@
         "safety_level": 4.75
     }
 ]
+
+export default OceaniaApi

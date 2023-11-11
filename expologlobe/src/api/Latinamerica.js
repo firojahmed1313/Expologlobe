@@ -1,4 +1,4 @@
-[
+const Latinamerica=[
     {
         "image_lastmod": 1676419327,
         "region": "Latin America",
@@ -1000,3 +1000,5 @@
         "safety_level": 1.75
     }
 ]
+
+export default Latinamerica

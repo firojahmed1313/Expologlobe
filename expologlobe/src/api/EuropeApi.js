@@ -1,4 +1,4 @@
-[
+const EuropeApi= [
     {
         "image_lastmod": 1676505730,
         "region": "Europe",
@@ -1000,3 +1000,5 @@
         "safety_level": 3.75
     }
 ]
+
+export default EuropeApi

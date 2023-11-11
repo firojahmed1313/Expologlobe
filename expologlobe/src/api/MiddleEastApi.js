@@ -1,4 +1,4 @@
-[
+const MiddleEastApi= [
     {
         "image_lastmod": 1676505760,
         "region": "Middle East",
@@ -1000,3 +1000,5 @@
         "safety_level": 3.5
     }
 ]
+
+export default MiddleEastApi
