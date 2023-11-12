@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import World from "../api/World";
 
 const CityDatails = ({ route }) => {
-  const [udata, setuData] = useState([]);
+  const [udata, setuData] = useState({});
   //const [isLoaded, setIsLoaded] = useState(true);
   const terget = route.params.con;
   if(terget==='asia'){
     console.log(World.asia[0].image_lastmod);
+    //setuData(World.asia);
+    //console.log(udata);
   }
   else if(terget==='africa'){
     console.log(World.africa[0].image_lastmod);
