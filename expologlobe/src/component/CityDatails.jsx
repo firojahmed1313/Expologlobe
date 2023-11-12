@@ -1,11 +1,12 @@
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity ,SafeAreaView,FlatList} from "react-native";
 import React, { useEffect, useState } from "react";
 
 import World from "../api/World";
+import CityItems from "./CityItems";
 
 const CityDatails = ({ route }) => {
   const [udata, setuData] = useState([{}]);
-  
+
 
   const terget = route.params.con;
   const getApiData = () => {
@@ -61,14 +62,27 @@ const CityDatails = ({ route }) => {
   }, [udata])
 
   return (
-    <View>
-      <Text>{terget}</Text>
-      {<Text>{udata.map(dta => <Text>{dta.weather_emoji + "     ,       "}</Text>)}</Text>
-      }
-    </View>
+
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={udata}
+        renderItem={({ item }) => <CityItems itemlist={item} />}
+        keyExtractor={(item) => item.index}
+      />
+    </SafeAreaView>
+
   );
 };
 
 export default CityDatails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container:{
+    borderRadius:5,
+    borderColor:"yellow",
+    borderWidth:2,
+    marginHorizontal:5,
+
+
+  }
+});
