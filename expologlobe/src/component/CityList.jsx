@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
     width: "90%",
     marginHorizontal: "5%",
     marginBottom: 15,
-    shadowColor: "#171717",
-    shadowOffset: { width: -4, height: 4 },
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
+    paddingBottom: 20,
+    elevation: 0.1,
+    shadowColor: '#070707',
+    
   },
   listImage: {
     //borderColor:"pink",

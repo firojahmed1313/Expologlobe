@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     borderColor:"yellow",
     borderWidth:2,
     marginHorizontal:5,
-
+    
 
   }
 });
