@@ -7,7 +7,7 @@ const CityItems = ({ itemlist }) => {
     return <Text style={{ fontSize: 20 }} >{parseFloat(no.toFixed(2))}</Text>
   }
   return (
-    <View style={styles.container} >
+    <View style={styles.container} key={itemlist.rank}>
       <View style={styles.imagecontainer}>
         <Image resizeMode="cover" source={{ uri: (itemlist.image) }} style={styles.frontImage} />
       </View>

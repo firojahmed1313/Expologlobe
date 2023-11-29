@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,Image, TouchableOpacity,} from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
 
@@ -39,11 +39,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: "90%",
     marginHorizontal: "5%",
-    
+
     marginBottom: 15,
-    elevation: 0.1,
-    shadowColor: '#52006A',
     
+    //shadowColor: '#52006A',
+    shadowColor: '#000',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 1.9,
+    shadowRadius: 2,
+    elevation: 0.1,
   },
   listImage: {
     //borderColor:"pink",
@@ -79,8 +83,8 @@ const styles = StyleSheet.create({
     marginHorizontal: "auto",
     marginTop: 10,
     marginVertical: 10,
-    alignSelf:"center",
-    
+    alignSelf: "center",
+
   },
   ButtonTextStyle: {
     textAlign: "center",
