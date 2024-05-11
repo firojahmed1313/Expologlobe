@@ -4,6 +4,8 @@ import React from 'react'
 const CityItems = ({ itemlist }) => {
 
   return (
+
+
     <View style={styles.container} key={itemlist.rank}>
       <View style={styles.imagecontainer}>
         <Image resizeMode="cover" source={{ uri: (itemlist.image) }} style={styles.frontImage} />
@@ -16,16 +18,16 @@ const CityItems = ({ itemlist }) => {
             <Text style={styles.DetailsText}>Name : {itemlist.name}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>latitude : {(itemlist.latitude)?.toFixed(2)}</Text>
+            <Text style={styles.DetailsText}>latitude : {(parseFloat(itemlist.latitude)).toFixed(2)}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>longitude : {(itemlist.longitude)?.toFixed(2)}</Text>
+            <Text style={styles.DetailsText}>longitude : {(parseFloat(itemlist.longitude)).toFixed(2)}</Text>
           </View>
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>Region : {itemlist.region}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>Population : {((itemlist.population)/1000000).toFixed(2)} M</Text>
+            <Text style={styles.DetailsText}>Population : {((itemlist.population) / 1000000).toFixed(2)} M</Text>
           </View>
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>Country : {itemlist.country}</Text>
@@ -34,7 +36,7 @@ const CityItems = ({ itemlist }) => {
             <Text style={styles.DetailsText}> DescriptionFromReview : {itemlist.descriptionFromReview}</Text>
           </View>
 
-          
+
 
         </View>
         <View style={styles.weathercontainer}>
@@ -54,7 +56,7 @@ const CityItems = ({ itemlist }) => {
                 </View>
               </View>
               <View style={styles.weather_icon}>
-                <Text style={{ fontSize: 20 }}>{itemlist.weather_icon}</Text>
+                <Text style={{ fontSize: 20,textAlign:"center" }}>{itemlist.weather_icon}</Text>
               </View>
             </View>
           </View>
@@ -188,13 +190,10 @@ const CityItems = ({ itemlist }) => {
           </View>
 
         </View>
-
-
       </View>
-
-
-
     </View>
+
+
   )
 }
 
@@ -208,14 +207,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 5,
     marginVertical: 7,
-    //backgroundColor: "#212a2c",
-    
-    /*shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
-    shadowOpacity: 0.2,
-    shadowRadius: 3,*/
-    
-    
+    backgroundColor: "#cbf7f7",
+    shadowColor: 'rgba(0, 3, 7, 0.25)',
+    shadowOffset: {width: -10, height: 10},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+
+
   },
   imagecontainer: {
     width: "100%",
@@ -232,14 +230,19 @@ const styles = StyleSheet.create({
   textcontainer: {
     borderRadius: 5,
     borderColor: "black",
-    color:"white",
+    color: "white",
     borderWidth: 1,
-    
+    backgroundColor:"linear-gradient(315deg, #d8d3d3, #fffafa)",
+    shadowColor: '#c2bebe',
+    shadowOffset: {width: -13, height: 13},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+
   },
   title: {
     alignSelf: "center",
     fontSize: 20,
-    color:"blue",
+    color: "blue",
   },
   Detailscontainer: {
     borderRadius: 5,
@@ -249,7 +252,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: 10,
     flexWrap: "wrap",
-    marginVertical:5,
+    marginVertical: 5,
+    backgroundColor:"#f0eaea",
+    shadowColor: '#ccc7c7',
+    shadowOffset: {width: -13, height: 13},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
   },
   Details: {
     borderRadius: 5,
@@ -262,18 +270,19 @@ const styles = StyleSheet.create({
     borderColor: "green",
     borderWidth: 1,
     fontSize: 18,
+    padding:3
   },
   descriptionFromReview: {
     borderRadius: 5,
     borderColor: "black",
     borderWidth: 1,
     fontSize: 16,
-    height:100,
-    overflow:"visible",
-    marginLeft:3,
+    height: 100,
+    overflow: "visible",
+    marginLeft: 3,
 
   },
-  
+
   weathercontainer: {
     borderRadius: 5,
     borderColor: "green",
@@ -281,6 +290,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     marginHorizontal: 10,
+    backgroundColor:"#f0eaea",
+    shadowColor: '#ccc7c7',
+    shadowOffset: {width: -13, height: 13},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
 
   },
   largetextfield: {
@@ -290,6 +304,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
+    backgroundColor:"#f0eaea",
+    shadowColor: '#ccc7c7',
+    shadowOffset: {width: -13, height: 13},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
   },
   smalltextfield: {
     borderRadius: 5,
@@ -299,6 +318,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginHorizontal: 10,
+    backgroundColor:"#f0eaea",
+    shadowColor: '#ccc7c7',
+    shadowOffset: {width: -13, height: 13},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
 
 
   },

@@ -63,7 +63,7 @@ const CityDatails = ({ route }) => {
 
   return (
 
-    <SafeAreaView style={styles.container}>
+    (udata)&& <SafeAreaView style={styles.container}>
       <FlatList
         data={udata}
         renderItem={({ item }) => <CityItems itemlist={item} />}
