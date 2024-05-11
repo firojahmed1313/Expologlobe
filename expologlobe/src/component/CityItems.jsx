@@ -2,10 +2,7 @@ import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, Saf
 import React from 'react'
 
 const CityItems = ({ itemlist }) => {
-  const floatTwoDecFromString = ({ no }) => {
-    console.log(no.contentLength);
-    return <Text style={{ fontSize: 20 }} >{parseFloat(no.toFixed(2))}</Text>
-  }
+
   return (
     <View style={styles.container} key={itemlist.rank}>
       <View style={styles.imagecontainer}>
@@ -19,16 +16,16 @@ const CityItems = ({ itemlist }) => {
             <Text style={styles.DetailsText}>Name : {itemlist.name}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>latitude : {itemlist.latitude}</Text>
+            <Text style={styles.DetailsText}>latitude : {(itemlist.latitude)?.toFixed(2)}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>longitude : {itemlist.longitude}</Text>
+            <Text style={styles.DetailsText}>longitude : {(itemlist.longitude)?.toFixed(2)}</Text>
           </View>
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>Region : {itemlist.region}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>Population : {itemlist.population}</Text>
+            <Text style={styles.DetailsText}>Population : {((itemlist.population)/1000000).toFixed(2)} M</Text>
           </View>
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>Country : {itemlist.country}</Text>
@@ -84,7 +81,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Internet Speed</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.internet_speed}</Text>
+                <Text style={{ fontSize: 20 }}>{(itemlist.internet_speed)?.toFixed(2)}</Text>
               </View>
             </View>
 
@@ -118,7 +115,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Cost Nomad</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {itemlist.cost_for_nomad_in_usd}</Text>
+                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_nomad_in_usd)?.toFixed(2)}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -126,7 +123,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Cost Local</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {itemlist.cost_for_local_in_usd}</Text>
+                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_local_in_usd)?.toFixed(2)}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -134,7 +131,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Cost Family</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {itemlist.cost_for_family_in_usd}</Text>
+                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_family_in_usd)?.toFixed(2)}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -142,7 +139,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Cost Expat</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {itemlist.cost_for_expat_in_usd}</Text>
+                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_expat_in_usd)?.toFixed(2)}</Text>
               </View>
             </View>
 
@@ -167,7 +164,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Total Score</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.total_score}</Text>
+                <Text style={{ fontSize: 20 }}>{(itemlist.total_score)?.toFixed(2)}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -175,7 +172,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Overall Score</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.overall_score}</Text>
+                <Text style={{ fontSize: 20 }}>{(itemlist.overall_score)?.toFixed(2)}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -183,7 +180,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 16 }} >Cost Score</Text>
               </View>
               <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.cost_score}</Text>
+                <Text style={{ fontSize: 20 }}>{(itemlist.cost_score)?.toFixed(2)}</Text>
               </View>
             </View>
 
@@ -211,6 +208,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 5,
     marginVertical: 7,
+    //backgroundColor: "#212a2c",
+    
     /*shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
@@ -233,23 +232,19 @@ const styles = StyleSheet.create({
   textcontainer: {
     borderRadius: 5,
     borderColor: "black",
-    //borderWidth: 1,
+    color:"white",
+    borderWidth: 1,
     
-
-    backgroundColor: "#7699d3",
-
-
-
   },
   title: {
     alignSelf: "center",
     fontSize: 20,
-  }
-  ,
+    color:"blue",
+  },
   Detailscontainer: {
     borderRadius: 5,
     borderColor: "red",
-    //borderWidth: 1,
+    borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
@@ -259,22 +254,19 @@ const styles = StyleSheet.create({
   Details: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     margin: 3,
-
-
   },
   DetailsText: {
     borderRadius: 5,
-    //borderColor: "green",
-    //borderWidth: 1,
+    borderColor: "green",
+    borderWidth: 1,
     fontSize: 18,
-
   },
   descriptionFromReview: {
     borderRadius: 5,
     borderColor: "black",
-    //borderWidth: 1,
+    borderWidth: 1,
     fontSize: 16,
     height:100,
     overflow:"visible",
@@ -285,7 +277,7 @@ const styles = StyleSheet.create({
   weathercontainer: {
     borderRadius: 5,
     borderColor: "green",
-    //borderWidth: 1,
+    borderWidth: 1,
     display: "flex",
     flexDirection: "column",
     marginHorizontal: 10,
@@ -294,7 +286,7 @@ const styles = StyleSheet.create({
   largetextfield: {
     borderRadius: 5,
     borderColor: "black",
-    //borderWidth: 1,
+    borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
@@ -302,7 +294,7 @@ const styles = StyleSheet.create({
   smalltextfield: {
     borderRadius: 5,
     borderColor: "red",
-    //borderWidth: 1,
+    borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -313,7 +305,7 @@ const styles = StyleSheet.create({
   weather_emoji: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     //width:"30%",
     alignSelf: "center",
     margin: "auto",
@@ -323,14 +315,14 @@ const styles = StyleSheet.create({
   textWeatherEmoji: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     margin: 10,
     fontSize: 100,
   },
   tepmPIcon: {
     borderRadius: 5,
     borderColor: "pink",
-    //borderWidth: 1,
+    borderWidth: 1,
     width: "50%",
     display: "flex",
     flexDirection: "column",
@@ -341,7 +333,7 @@ const styles = StyleSheet.create({
   weather_icon: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
 
     fontSize: 32,
     fontWeight: "500"
@@ -349,7 +341,7 @@ const styles = StyleSheet.create({
   temp: {
     borderRadius: 5,
     borderColor: "white",
-    //borderWidth: 1,
+    borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
@@ -358,7 +350,7 @@ const styles = StyleSheet.create({
   sftemp: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     fontSize: 38,
     fontWeight: "500"
   },
@@ -367,21 +359,21 @@ const styles = StyleSheet.create({
   dataField: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     //width:"auto",
     margin: 5,
   },
   keyField: {
     borderRadius: 5,
     borderColor: "pink",
-    //borderWidth: 1,
+    borderWidth: 1,
     alignSelf: "center",
     marginBottom: 5,
   },
   valueField: {
     borderRadius: 5,
     borderColor: "blue",
-    //borderWidth: 1,
+    borderWidth: 1,
     alignSelf: "center",
 
   },

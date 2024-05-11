@@ -67,7 +67,7 @@ const CityDatails = ({ route }) => {
       <FlatList
         data={udata}
         renderItem={({ item }) => <CityItems itemlist={item} />}
-        keyExtractor={(item) => item.rank}
+        keyExtractor={(item) => {return item.rank}}
       />
     </SafeAreaView>
 
