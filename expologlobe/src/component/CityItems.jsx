@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, FlatList } from "react-native";
+import { ActivityIndicator, ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, FlatList,ScrollView } from "react-native";
 import React from 'react'
 
 const CityItems = ({ itemlist }) => {
@@ -8,10 +8,12 @@ const CityItems = ({ itemlist }) => {
 
     <View style={styles.container} key={itemlist.rank}>
       <View style={styles.imagecontainer}>
-        <Image resizeMode="cover" source={{ uri: (itemlist.image) }} style={styles.frontImage} />
+        <ImageBackground resizeMode="cover" source={{ uri: (itemlist.image) }} style={styles.frontImage} >
+          <Text style={styles.title}> {itemlist.rank}</Text>
+        </ImageBackground>
       </View>
       <View style={styles.textcontainer}>
-        <Text style={styles.title}> {itemlist.rank}</Text>
+
         <View style={styles.Detailscontainer}>
 
           <View style={styles.Details}>
@@ -33,166 +35,167 @@ const CityItems = ({ itemlist }) => {
             <Text style={styles.DetailsText}>Region : {itemlist.region}</Text>
           </View>
           
-          <View style={styles.descriptionFromReview}>
-            <Text style={styles.DetailsText}> DescriptionFromReview : {(itemlist.descriptionFromReview)?.substring(0,100)}...</Text>
+
+
+
+        </View>
+        
+
+        <View style={styles.largetextfield}>
+          <View style={styles.weather_emoji}>
+            <Text style={styles.textWeatherEmoji}>{itemlist.weather_emoji}</Text>
+          </View>
+          <View style={styles.tepmPIcon}>
+            <View style={styles.temp}>
+              <View style={styles.sftemp}>
+                <Text style={{ fontSize: 20 }}>{parseFloat(itemlist.temperatureC)?.toFixed(2)} &deg;C</Text>
+              </View>
+              <View style={styles.sftemp}>
+
+                <Text style={{ fontSize: 20 }} >{parseFloat(itemlist.temperatureF)?.toFixed(2)} &deg;F</Text>
+              </View>
+            </View>
+            <View style={styles.weather_icon}>
+              <Text style={{ fontSize: 20, textAlign: "center" }}>{itemlist.weather_icon}</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.smalltextfield}>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Humidity</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{parseFloat(itemlist.humidity)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Air Quality Score</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.air_quality_score)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Safety Level</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.safety_level)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Air Quality Now</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{parseFloat(itemlist.air_quality_now)?.toFixed(2)}</Text>
+            </View>
+          </View>
+
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Temperature Feels Like</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.temperatureC_feels_like)?.toFixed(2)} &deg;C    {(itemlist.temperatureF_feels_like)?.toFixed(2)} &deg;F </Text>
+            </View>
+          </View>
+
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Internet Speed</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.internet_speed)?.toFixed(2)}</Text>
+            </View>
+          </View>
+
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Cost Score</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.cost_score)?.toFixed(2)}</Text>
+            </View>
+          </View>
+
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Cost Nomad</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_nomad_in_usd)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Cost Local</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_local_in_usd)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Cost Family</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_family_in_usd)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Cost Expat</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_expat_in_usd)?.toFixed(2)}</Text>
+            </View>
+          </View>
+
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Internet Score</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.internet_score)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Leisure Quality</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{parseFloat(itemlist.leisure_quality)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Total Score</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.total_score)?.toFixed(2)}</Text>
+            </View>
+          </View>
+          <View style={styles.dataField}>
+            <View style={styles.keyField}>
+              <Text style={{ fontSize: 16 }} >Overall Score</Text>
+            </View>
+            <View style={styles.valueField}>
+              <Text style={{ fontSize: 20 }}>{(itemlist.overall_score)?.toFixed(2)}</Text>
+            </View>
           </View>
 
 
 
         </View>
-        <View style={styles.weathercontainer}>
+        <SafeAreaView style={styles.weathercontainer}>
+          <ScrollView style={styles.descriptionFromReview}>
+            <Text style={styles.DetailsText}> DescriptionFromReview : {itemlist.descriptionFromReview}</Text>
+          </ScrollView>
+        </SafeAreaView>
 
-          <View style={styles.largetextfield}>
-            <View style={styles.weather_emoji}>
-              <Text style={styles.textWeatherEmoji}>{itemlist.weather_emoji}</Text>
-            </View>
-            <View style={styles.tepmPIcon}>
-              <View style={styles.temp}>
-                <View style={styles.sftemp}>
-                  <Text style={{ fontSize: 20 }}>{itemlist.temperatureC} &deg;C</Text>
-                </View>
-                <View style={styles.sftemp}>
-
-                  <Text style={{ fontSize: 20 }} >{itemlist.temperatureF} &deg;F</Text>
-                </View>
-              </View>
-              <View style={styles.weather_icon}>
-                <Text style={{ fontSize: 20,textAlign:"center" }}>{itemlist.weather_icon}</Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.smalltextfield}>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Humidity</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.humidity}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Air Quality Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.air_quality_score}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Safety Level</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.safety_level}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Air Quality Now</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.air_quality_now}</Text>
-              </View>
-            </View>
-
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Temperature Feels Like</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.temperatureC_feels_like} &deg;C    {itemlist.temperatureF_feels_like} &deg;F </Text>
-              </View>
-            </View>
-
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Internet Speed</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.internet_speed)?.toFixed(2)}</Text>
-              </View>
-            </View>
-
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.cost_score)?.toFixed(2)}</Text>
-              </View>
-            </View>
-           
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Nomad</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_nomad_in_usd)?.toFixed(2)}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Local</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_local_in_usd)?.toFixed(2)}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Family</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_family_in_usd)?.toFixed(2)}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Expat</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}> $ {(itemlist.cost_for_expat_in_usd)?.toFixed(2)}</Text>
-              </View>
-            </View>
-
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Internet Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.internet_score}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Leisure Quality</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.leisure_quality}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Total Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.total_score)?.toFixed(2)}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Overall Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.overall_score)?.toFixed(2)}</Text>
-              </View>
-            </View>
-            
-
-
-          </View>
-
-        </View>
       </View>
     </View>
 
@@ -216,16 +219,18 @@ const styles = StyleSheet.create({
   },
   imagecontainer: {
     width: "94%",
-    //borderColor: "red",
-    marginTop:4,
-    marginHorizontal:"3%",
+    borderColor: "red",
+    marginTop: 4,
+    marginHorizontal: "3%",
+    //borderWidth:1,
 
   },
   frontImage: {
-    borderRadius: 10,
+    borderRadius: 20,
     height: undefined,
     width: "100%",
     aspectRatio: 1.5,
+
   }
   ,
   textcontainer: {
@@ -233,23 +238,23 @@ const styles = StyleSheet.create({
     borderColor: "black",
     color: "white",
     //borderWidth: 1,
-    backgroundColor:"linear-gradient(315deg, #d8d3d3, #fffafa)",
+    backgroundColor: "linear-gradient(315deg, #d8d3d3, #fffafa)",
   },
   title: {
-    alignSelf: "center",
+    //alignSelf: "center",
     color: "blue",
     borderColor: "blue",
-    backgroundColor:"red",
-    color:"white",
+    //backgroundColor:"red",
+    //color:"white",
+    color: "red",
     //borderWidth: 2,
-    width: 100,
-    height: 100,
 
-    textAlign: "center",
-    fontWeight:"bold",
-    fontSize: 40,
-    textAlignVertical:"center",
-    marginTop:5,
+
+    //textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 50,
+    //textAlignVertical:"center",
+    //marginTop:5,
   },
   Detailscontainer: {
     borderRadius: 5,
@@ -260,14 +265,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     flexWrap: "wrap",
     marginVertical: 5,
-    backgroundColor:"#f0eaea",
+    backgroundColor: "#f0eaea",
   },
   Details: {
     borderRadius: 5,
     borderColor: "blue",
     //borderWidth: 1,
     margin: 5,
-    backgroundColor:"white",
+    backgroundColor: "white",
     paddingHorizontal: 5,
   },
   DetailsText: {
@@ -275,7 +280,7 @@ const styles = StyleSheet.create({
     borderColor: "green",
     //borderWidth: 1,
     fontSize: 18,
-    padding:3
+    padding: 3
   },
   descriptionFromReview: {
     borderRadius: 5,
@@ -285,8 +290,9 @@ const styles = StyleSheet.create({
     height: "auto",
     overflow: "visible",
     marginLeft: 3,
-    backgroundColor:"white",
-    marginBottom: 4,
+    backgroundColor: "white",
+    marginHorizontal:4,
+    marginVertical:5,
 
   },
 
@@ -297,8 +303,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     marginHorizontal: 10,
-    backgroundColor:"#f0eaea",
-    marginBottom:4,
+    backgroundColor: "#f0eaea",
+    marginBottom: 4,
 
   },
   largetextfield: {
@@ -308,9 +314,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
-    backgroundColor:"white",
-    marginVertical:4,
-    
+    backgroundColor: "#f0eaea",
+    marginVertical: 4,
+
   },
   smalltextfield: {
     borderRadius: 5,
@@ -320,9 +326,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginHorizontal: 10,
-    backgroundColor:"white",
-    marginVertical:4,
-    paddingBottom:4,
+    backgroundColor: "#f0eaea",
+    marginVertical: 4,
+    paddingBottom: 4,
 
 
   },
@@ -385,9 +391,9 @@ const styles = StyleSheet.create({
     borderColor: "blue",
     //borderWidth: 1,
     //width:"auto",
-    margin: 3,
-    backgroundColor:"green",
-    paddingHorizontal:2,
+    margin: 4,
+    backgroundColor: "white",
+    paddingHorizontal: 5,
   },
   keyField: {
     borderRadius: 5,
