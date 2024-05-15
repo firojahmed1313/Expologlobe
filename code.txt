@@ -10,3 +10,31 @@ npx expo install react-native-gesture-handler
 npx expo install @react-native-masked-view/masked-view
 npm install @react-navigation/drawer
 npx expo install react-native-reanimated
+
+
+apk 
+
+npm  instal -g eas-cli
+eas build -p android
+
+"build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "preview4": {
+      "distribution": "internal"
+    },
+    "production": {}
+},
+
+eas build -p android --profile preview
