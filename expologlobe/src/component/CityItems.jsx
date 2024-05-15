@@ -11,11 +11,14 @@ const CityItems = ({ itemlist }) => {
         <Image resizeMode="cover" source={{ uri: (itemlist.image) }} style={styles.frontImage} />
       </View>
       <View style={styles.textcontainer}>
-        <Text style={styles.title}>Rank : {itemlist.rank}</Text>
+        <Text style={styles.title}> {itemlist.rank}</Text>
         <View style={styles.Detailscontainer}>
 
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>Name : {itemlist.name}</Text>
+          </View>
+          <View style={styles.Details}>
+            <Text style={styles.DetailsText}>Population : {((itemlist.population) / 1000000).toFixed(2)} M</Text>
           </View>
           <View style={styles.Details}>
             <Text style={styles.DetailsText}>latitude : {(parseFloat(itemlist.latitude)).toFixed(2)}</Text>
@@ -24,16 +27,14 @@ const CityItems = ({ itemlist }) => {
             <Text style={styles.DetailsText}>longitude : {(parseFloat(itemlist.longitude)).toFixed(2)}</Text>
           </View>
           <View style={styles.Details}>
-            <Text style={styles.DetailsText}>Region : {itemlist.region}</Text>
-          </View>
-          <View style={styles.Details}>
-            <Text style={styles.DetailsText}>Population : {((itemlist.population) / 1000000).toFixed(2)} M</Text>
-          </View>
-          <View style={styles.Details}>
             <Text style={styles.DetailsText}>Country : {itemlist.country}</Text>
           </View>
+          <View style={styles.Details}>
+            <Text style={styles.DetailsText}>Region : {itemlist.region}</Text>
+          </View>
+          
           <View style={styles.descriptionFromReview}>
-            <Text style={styles.DetailsText}> DescriptionFromReview : {itemlist.descriptionFromReview}</Text>
+            <Text style={styles.DetailsText}> DescriptionFromReview : {(itemlist.descriptionFromReview)?.substring(0,100)}...</Text>
           </View>
 
 
@@ -69,30 +70,20 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 20 }}>{itemlist.humidity}</Text>
               </View>
             </View>
-
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Safety Level</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{itemlist.safety_level}</Text>
-              </View>
-            </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Internet Speed</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.internet_speed)?.toFixed(2)}</Text>
-              </View>
-            </View>
-
             <View style={styles.dataField}>
               <View style={styles.keyField}>
                 <Text style={{ fontSize: 16 }} >Air Quality Score</Text>
               </View>
               <View style={styles.valueField}>
                 <Text style={{ fontSize: 20 }}>{itemlist.air_quality_score}</Text>
+              </View>
+            </View>
+            <View style={styles.dataField}>
+              <View style={styles.keyField}>
+                <Text style={{ fontSize: 16 }} >Safety Level</Text>
+              </View>
+              <View style={styles.valueField}>
+                <Text style={{ fontSize: 20 }}>{itemlist.safety_level}</Text>
               </View>
             </View>
             <View style={styles.dataField}>
@@ -112,6 +103,25 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 20 }}>{itemlist.temperatureC_feels_like} &deg;C    {itemlist.temperatureF_feels_like} &deg;F </Text>
               </View>
             </View>
+
+            <View style={styles.dataField}>
+              <View style={styles.keyField}>
+                <Text style={{ fontSize: 16 }} >Internet Speed</Text>
+              </View>
+              <View style={styles.valueField}>
+                <Text style={{ fontSize: 20 }}>{(itemlist.internet_speed)?.toFixed(2)}</Text>
+              </View>
+            </View>
+
+            <View style={styles.dataField}>
+              <View style={styles.keyField}>
+                <Text style={{ fontSize: 16 }} >Cost Score</Text>
+              </View>
+              <View style={styles.valueField}>
+                <Text style={{ fontSize: 20 }}>{(itemlist.cost_score)?.toFixed(2)}</Text>
+              </View>
+            </View>
+           
             <View style={styles.dataField}>
               <View style={styles.keyField}>
                 <Text style={{ fontSize: 16 }} >Cost Nomad</Text>
@@ -177,14 +187,7 @@ const CityItems = ({ itemlist }) => {
                 <Text style={{ fontSize: 20 }}>{(itemlist.overall_score)?.toFixed(2)}</Text>
               </View>
             </View>
-            <View style={styles.dataField}>
-              <View style={styles.keyField}>
-                <Text style={{ fontSize: 16 }} >Cost Score</Text>
-              </View>
-              <View style={styles.valueField}>
-                <Text style={{ fontSize: 20 }}>{(itemlist.cost_score)?.toFixed(2)}</Text>
-              </View>
-            </View>
+            
 
 
           </View>
@@ -204,20 +207,18 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 10,
     borderColor: "black",
-    borderWidth: 1,
+    //borderWidth: 1,
     marginHorizontal: 5,
     marginVertical: 7,
     backgroundColor: "#cbf7f7",
-    shadowColor: 'rgba(0, 3, 7, 0.25)',
-    shadowOffset: {width: -10, height: 10},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
 
 
   },
   imagecontainer: {
-    width: "100%",
+    width: "94%",
     //borderColor: "red",
+    marginTop:4,
+    marginHorizontal:"3%",
 
   },
   frontImage: {
@@ -231,105 +232,104 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "black",
     color: "white",
-    borderWidth: 1,
+    //borderWidth: 1,
     backgroundColor:"linear-gradient(315deg, #d8d3d3, #fffafa)",
-    shadowColor: '#c2bebe',
-    shadowOffset: {width: -13, height: 13},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
-
   },
   title: {
     alignSelf: "center",
-    fontSize: 20,
     color: "blue",
+    borderColor: "blue",
+    backgroundColor:"red",
+    color:"white",
+    //borderWidth: 2,
+    width: 100,
+    height: 100,
+
+    textAlign: "center",
+    fontWeight:"bold",
+    fontSize: 40,
+    textAlignVertical:"center",
+    marginTop:5,
   },
   Detailscontainer: {
     borderRadius: 5,
     borderColor: "red",
-    borderWidth: 1,
+    //borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
     flexWrap: "wrap",
     marginVertical: 5,
     backgroundColor:"#f0eaea",
-    shadowColor: '#ccc7c7',
-    shadowOffset: {width: -13, height: 13},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
   },
   Details: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
-    margin: 3,
+    //borderWidth: 1,
+    margin: 5,
+    backgroundColor:"white",
+    paddingHorizontal: 5,
   },
   DetailsText: {
     borderRadius: 5,
     borderColor: "green",
-    borderWidth: 1,
+    //borderWidth: 1,
     fontSize: 18,
     padding:3
   },
   descriptionFromReview: {
     borderRadius: 5,
     borderColor: "black",
-    borderWidth: 1,
+    //borderWidth: 1,
     fontSize: 16,
-    height: 100,
+    height: "auto",
     overflow: "visible",
     marginLeft: 3,
+    backgroundColor:"white",
+    marginBottom: 4,
 
   },
 
   weathercontainer: {
     borderRadius: 5,
     borderColor: "green",
-    borderWidth: 1,
+    //borderWidth: 1,
     display: "flex",
     flexDirection: "column",
     marginHorizontal: 10,
     backgroundColor:"#f0eaea",
-    shadowColor: '#ccc7c7',
-    shadowOffset: {width: -13, height: 13},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
+    marginBottom:4,
 
   },
   largetextfield: {
     borderRadius: 5,
     borderColor: "black",
-    borderWidth: 1,
+    //borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     marginHorizontal: 10,
-    backgroundColor:"#f0eaea",
-    shadowColor: '#ccc7c7',
-    shadowOffset: {width: -13, height: 13},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
+    backgroundColor:"white",
+    marginVertical:4,
+    
   },
   smalltextfield: {
     borderRadius: 5,
     borderColor: "red",
-    borderWidth: 1,
+    //borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     marginHorizontal: 10,
-    backgroundColor:"#f0eaea",
-    shadowColor: '#ccc7c7',
-    shadowOffset: {width: -13, height: 13},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
+    backgroundColor:"white",
+    marginVertical:4,
+    paddingBottom:4,
 
 
   },
   weather_emoji: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
     //width:"30%",
     alignSelf: "center",
     margin: "auto",
@@ -339,14 +339,14 @@ const styles = StyleSheet.create({
   textWeatherEmoji: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
     margin: 10,
     fontSize: 100,
   },
   tepmPIcon: {
     borderRadius: 5,
     borderColor: "pink",
-    borderWidth: 1,
+    //borderWidth: 1,
     width: "50%",
     display: "flex",
     flexDirection: "column",
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
   weather_icon: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
 
     fontSize: 32,
     fontWeight: "500"
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   temp: {
     borderRadius: 5,
     borderColor: "white",
-    borderWidth: 1,
+    //borderWidth: 1,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
   sftemp: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
     fontSize: 38,
     fontWeight: "500"
   },
@@ -383,21 +383,23 @@ const styles = StyleSheet.create({
   dataField: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
     //width:"auto",
-    margin: 5,
+    margin: 3,
+    backgroundColor:"green",
+    paddingHorizontal:2,
   },
   keyField: {
     borderRadius: 5,
     borderColor: "pink",
-    borderWidth: 1,
+    //borderWidth: 1,
     alignSelf: "center",
     marginBottom: 5,
   },
   valueField: {
     borderRadius: 5,
     borderColor: "blue",
-    borderWidth: 1,
+    //borderWidth: 1,
     alignSelf: "center",
 
   },
