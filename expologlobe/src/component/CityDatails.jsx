@@ -1,6 +1,6 @@
 import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity ,SafeAreaView,FlatList} from "react-native";
 import React, { useEffect, useState } from "react";
-
+//import { v4 as uuidv4 } from 'uuid';
 import World from "../api/World";
 import CityItems from "./CityItems";
 
@@ -67,7 +67,6 @@ const CityDatails = ({ route }) => {
       <FlatList
         data={udata}
         renderItem={({ item }) => <CityItems itemlist={item} />}
-        keyExtractor={(item) => {return item.rank}}
       />
     </SafeAreaView>
 
